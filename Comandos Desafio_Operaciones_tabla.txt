@@ -1,0 +1,101 @@
+PRIMERA PARTE
+
+
+1.- CREATE DATABASE posts 
+
+2.- CREATE TABLE post (
+	id SERIAL,
+	usuario VARCHAR(20),
+	fecha_creacion DATE, 
+	contenido VARCHAR,
+	descripcion VARCHAR
+	PRIMARY KEY (id)
+);
+
+3.-
+INSERT INTO post(usuario,fecha_creacion, contenido, descripcion)
+VALUES ('Pamela', '2020-07-25','contenido: 1er post Pame', 'descripcion: 1er post Pame');
+INSERT INTO post(usuario,fecha_creacion, contenido, descripcion)
+VALUES ('Pamela', '2020-07-25','contenido: 2do post Pame', 'descripcion: 2do post Pame');
+INSERT INTO post(usuario,fecha_creacion, contenido,	descripcion)
+VALUES ('Carlos', '2020-07-20','contenido: 1er post Carlos', 'descripcion: 1er post Carlos');
+
+4.-
+ALTER TABLE post ADD 'titulo'; 
+
+5.- 
+
+UPDATE post SET titulo = 'titulopost' WHERE id = 9;
+UPDATE post SET titulo = 'titulopost' WHERE id = 11;
+UPDATE post SET titulo = 'titulopost' WHERE id = 12;
+UPDATE post SET titulo = 'titulopost' WHERE id = 13;
+UPDATE post SET titulo = 'titulopost' WHERE id = 14;
+UPDATE post SET titulo = 'titulopost' WHERE id = 15;
+
+
+6.-
+INSERT INTO post(usuario,fecha_creacion, contenido,	descripcion, titulo)
+VALUES ('Pedro', '2020-07-25','contenido: 1er post Pedro', 'descripcion: 2do post Pedro', 'titulo 1er post Pedro');
+INSERT INTO post(usuario,fecha_creacion, contenido,	descripcion, titulo)
+VALUES ('Pedro', '2020-07-30','contenido: 2do post Pedro', 'descripcion: 2do post Pedro', 'titulo 2do post Pedro');
+
+7.-
+DELETE FROM post WHERE usuario = 'Carlos'
+
+8.-
+INSERT INTO post(usuario,fecha_creacion, contenido,	descripcion, titulo)
+VALUES ('Carlos', '2020-07-31','contenido: nuevo post Carlos', 'descripcion: nuevo post Carlos', 'titulo nuevo post Carlos');
+
+
+PARTE II
+
+9.-
+CREATE TABLE comentarios (
+	id SERIAL,
+	fecha_comentario TIMESTAMP, 
+	contenido VARCHAR,
+	id_post INT,
+	FOREIGN KEY (id_post) REFERENCES post (id),
+	PRIMARY KEY (id)
+);
+
+10.-
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Pame id_post =9', '9');
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Pame id_post =11', '11');
+
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Carlos_1 id_post =14', '14');
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Carlos_2 id_post =14', '14');
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Carlos_2 id_post =14', '14');
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Carlos_2 id_post =14', '14');
+
+11.- 
+INSERT INTO post (usuario,fecha_creacion, contenido, descripcion, titulo)
+VALUES ('Margarita', '2020-07-01','contenido: nuevo post Margarita', 'descripcion: nuevo post Margarita', 'titulo nuevo post Margarita');
+
+12.-
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Margarita_1 id_post =15', '15');
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Margarita_2 id_post =15', '15');
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Margarita_3 id_post =15', '15');
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Margarita_4 id_post =15', '15');
+INSERT INTO comentarios (fecha_comentario, contenido, id_post)
+VALUES ('2020-07-25 12:00','comentario Margarita_5 id_post =15', '15');
+
+
+
+
+
+
+
+
+
+
